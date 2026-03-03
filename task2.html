@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        .hero {
+            background-color: #f2f2f2;
+            padding: 20px;
+            border: 1px solid #333;
+            height: 300px;
+            width: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            margin: 20px auto;
+            position: relative;
+        }
+        .counter {
+            font-family: Arial, sans-serif;
+            font-size: 28px;
+            color: #fff;
+            background-color: red;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="counter">0</div>
+        </div>
+    </div>
+    <script>
+        
+
+        window.onload = function() {
+            const counter = document.querySelector('.counter');
+            let count = parseInt(localStorage.getItem('counterValue')) || 0;
+
+            count++;
+
+            localStorage.setItem('counterValue', count);
+
+            counter.textContent = count;
+        };
+       
+    </script>
+</body>
+</html>

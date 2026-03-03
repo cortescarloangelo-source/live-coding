@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .hero {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #333;
+            height: 150px;
+            width: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" name="first-name">
+            <br>
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="last-name">
+            <br>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email">
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <br>
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password">
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <script>
+        const form = document.querySelector('form');
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (!validateEmail(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            
+            confirm('Form submitted successfully!');
+
+            console.log('First Name:', firstName);
+            console.log('Last Name:', lastName);
+            console.log('Email:', email);
+        });
+    </script>
+</body>
+</html>
